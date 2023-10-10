@@ -37,6 +37,7 @@
           this.pellet = this.createPellet();
           this.canvas = document.getElementById('canvas');
           this.context = this.canvas.getContext('2d');
+          this.context.font = `24px retrofont`;
           this.canvas.width = this.width;
           this.canvas.height = this.height;
           this.drawPellet();
