@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- <link rel="preload" href="04B30.ttf" as="font" type="font/ttf"> -->
     <meta charset="utf-8">
     <title>SNAKE</title>
     <style media="screen">
@@ -10,9 +9,7 @@
       @keyframes scanline { 0% { bottom: 100% } 50% { bottom: 100% } 100% { bottom: -20% } }
       html,body { margin: 0; overflow: hidden; height: 100%; }
       #root { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
-      canvas { position: relative; background: #05321e; background-image: radial-gradient(ellipse,#051832 0%,#050505 90% ) }
-      #scanlines { display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0; background: linear-gradient(to bottom,rgba(18, 16, 16, 0.1) 50%,rgba(0, 0, 0, 0.25) 50% ); background-size: 100% 2px; z-index: 2;  }
-      #scanline { display: block; width: 100%; height: 200px; z-index: 3; mix-blend-mode: overlay; background: linear-gradient(0deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%,rgba(255, 255, 255, 0) 100% ); position: absolute; bottom: 100%; animation: scanline 5s linear infinite; }
+      canvas { position: relative; background: #000; }
     </style>
     <script type="text/javascript">
       class App {
@@ -105,7 +102,7 @@
         }
         drawSnake(){
           for(let i = 0; i<this.snake.length; i++){
-            this.drawCell(this.snake[i].x, this.snake[i].y, '#2666f2')
+            this.drawCell(this.snake[i].x, this.snake[i].y, '#fff')
           }
         }
         drawText(x,y,text,fontSize,color){
@@ -116,12 +113,12 @@
         }
         drawGameover(){
           if(this.is_gameover) return;
-          this.drawText(this.width / 2, this.height / 2, 'GAMEOVER','48px','#2666f2');
-          this.drawText(this.width / 2, this.height / 2 + 50, 'press space','24px','#2666f2');
+          this.drawText(this.width / 2, this.height / 2, 'GAMEOVER','48px','#fff');
+          this.drawText(this.width / 2, this.height / 2 + 50, 'press space','24px','#fff');
           this.is_gameover = true;
         }
         drawPellet(){
-          this.drawCell(this.pellet.x, this.pellet.y, '#2666f2')
+          this.drawCell(this.pellet.x, this.pellet.y, '#fff')
         }
         render(){
           if(this.gameover) return this.drawGameover();
@@ -137,8 +134,6 @@
   <body>
     <div id="root">
       <canvas id="canvas"></canvas>
-      <div id="scanlines"></div>
-      <div id="scanline"></div>
     </div>
   </body>
 </html>
